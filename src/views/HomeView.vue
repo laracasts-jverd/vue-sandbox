@@ -9,14 +9,15 @@ let comment = ref('initial textarea value');
 
 <template>
   <main>
-    <!-- Composables usage -->
+    <!-- use useStorage composables to keep the food value in sync with localStorage -->
     <p>
       What is your favorite food? <input type="text" v-model="food">
     </p>
 
-    <!-- Refactor defineProps & defineEmitd -->
+     <!-- Keeping the textarea in sync with the parent component's state -->
     <form>
-      <TabbableTextarea v-model="comment" style="width: 100%; height: 300px;" />
+      <label for="comment">Comment: {{ comment }}</label>
+      <TabbableTextarea v-model:comment="comment" style="width: 100%; height: 300px;" />
     </form>
 
   </main>
